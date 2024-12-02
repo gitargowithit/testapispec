@@ -1,0 +1,30 @@
+openapi: 3.1.0
+info:
+  title: testapispeciplugin
+  version: 1.0.0
+servers:
+  - url: https://localhost:7007/api/testapispeciplugin
+paths:
+  /health:
+    get:
+      summary: Heartbeat
+      description: Health endpoint to check if online
+      operationId: health
+      responses:
+        '200': 
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: string
+                items:
+                  $ref: '#/components/schemas/HealthStatus'
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
